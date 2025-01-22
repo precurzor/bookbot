@@ -4,10 +4,16 @@ def main():
         file_contents = f.read()
     word_count = count_words(file_contents)
     char_count = count_chars(file_contents)
+    sorted_char = char_sorted_list(char_count)
 
-    print(f"Reading {book_path}")
-    print(f"Word count = {word_count}")
-    print(f"Character count = {char_count}")
+    print(f"--- Begin report of {book_path} --- ")
+    print(f"Total word count: {word_count}")
+    print("") 
+    for item in sorted_char:
+        char = item['char']
+        num = item['num']
+        if char.isalpha():
+            print(f"'{char}' appears {num} times") 
 
 def count_words(file_contents):
     words = file_contents.split()  
@@ -22,6 +28,17 @@ def count_chars(file_contents):
         else:
             char_dict[char] = 1
     return char_dict   
+
+def sort_chars(char_count):
+    return char_count['num']
+
+def char_sorted_list(char_count):
+    sorted_list = []
+    for char, num in char_count.items():
+        # Append dict that contains character and count
+        sorted_list.append({"char": char, "num": num})
+    sorted_list.sort(reverse=True, key=sort_chars)
+    return sorted_list
 
 # I DID TOO MUCH! Thought it was only a to z...
 # def count_chars(file_contents):
