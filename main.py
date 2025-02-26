@@ -5,12 +5,12 @@ def main():
     book_path = "books/frankenstein.txt"
     with open(book_path) as f:
         file_contents = f.read()
-    word_count = count_words(file_contents)
+    word_count = get_num_words(file_contents)
     char_count = count_chars(file_contents)
     sorted_char = char_sorted_list(char_count)
 
     print(f"--- Begin report of {book_path} --- ")
-    print(f"Total word count: {word_count}")
+    print(f"{word_count} words found in the document")
     print("") 
     for item in sorted_char:
         char = item['char']
