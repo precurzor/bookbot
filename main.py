@@ -1,3 +1,5 @@
+from stats import get_num_words
+
 def main():
 
     book_path = "books/frankenstein.txt"
@@ -15,10 +17,6 @@ def main():
         num = item['num']
         if char.isalpha():
             print(f"'{char}' appears {num} times") 
-
-def count_words(file_contents):
-    words = file_contents.split()  
-    return len(words)
 
 def count_chars(file_contents):
     char_dict = {}
